@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Color_Demo"
         mc:Ignorable="d"
-        Title="BackGroundWindow" Height="562.286" Width="1465.714" Topmost="True">
+        Title="BackGroundWindow" Height="319.537" Width="578.937" Topmost="True">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />

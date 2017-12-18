@@ -33,11 +33,13 @@ namespace Wpf_Color_Demo
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimer.Start();
-        }
 
+
+        }
+        D de = new D(InBlackStyle);
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-
+            //    InBlackStyle(this);
         }
 
         /// <summary>
@@ -79,8 +81,8 @@ namespace Wpf_Color_Demo
             sw.Start();
 
             int Settings_Default_dpi = 1;
-            Drawing.Rectangle rc = new Drawing.Rectangle((int)window.Left + deltaX, (int)window.Top + deltaY, 1,1);
-            Console.WriteLine(rc.Size+"s");
+            Drawing.Rectangle rc = new Drawing.Rectangle((int)window.Left + deltaX, (int)window.Top + deltaY, 1, 1);
+            Console.WriteLine(rc.Size + "s");
             var bitmap = new Drawing.Bitmap(1, 1);
             Console.WriteLine(sw.ElapsedMilliseconds);
             using (Drawing.Graphics g = Drawing.Graphics.FromImage(bitmap))
@@ -112,23 +114,23 @@ namespace Wpf_Color_Demo
         {
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
-
-            bool d = true;
+            bool d = false;
             if (d)
             {
-                string s = "";
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 20; i++)
                 {
-                    s += InBlackStyle(this);
+                    InBlackStyle(this);
                 }
-                Console.WriteLine(s);
             }
             else
             {
-                Console.WriteLine(InBlackStyle(this));
+                //    Console.WriteLine(InBlackStyle(this));
+                Dispatcher.BeginInvoke(de);
+                Console.WriteLine("de");
             }
-
-            Console.WriteLine("总"+sw.ElapsedMilliseconds);
+            Console.WriteLine("总" + sw.ElapsedMilliseconds);
         }
+
+        public delegate bool D(Window window);
     }
 }
