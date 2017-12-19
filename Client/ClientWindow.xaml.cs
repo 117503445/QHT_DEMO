@@ -70,38 +70,35 @@ namespace Client
         /// <param name="e"></param>
         private void Watcher_Changed(object sender, FileSystemEventArgs e)
         {
-
+            Console.WriteLine("Watcher_Changed");
             Thread.Sleep(100);//睡一会,防止线程占用
             LoadConnectTxt();
             HandleTasks();
+            WriteConnectTxt();
+            ShowInfo();
         }
         /// <summary>
         /// 读取Connect.txt,更新任务清单
         /// </summary>
         private void LoadConnectTxt()
         {
+            Console.WriteLine("LoadConnectTxt");
             tasks = GetTask(File.ReadAllLines(connectPath, Encoding.Default).ToList());
-            foreach (var item in tasks)
-            {
-                Console.WriteLine(item);
-            }
-            ShowInfo();
         }
         /// <summary>
         /// 将任务清单写入Connect.txt
         /// </summary>
         private void WriteConnectTxt()
         {
-            Watcher.Changed-= Watcher_Changed;
+            Console.WriteLine("WriteConnectTxt");
+            Watcher.EnableRaisingEvents = false;
             List<string> list = new List<string>();
-            Console.WriteLine("!!!!!!!!!!!!"+list.Count);
             for (int i = 0; i < tasks.Count; i++)
             {
                 list.Add(tasks[i].ToString());
             }
             File.WriteAllLines(connectPath, list);
-            LoadConnectTxt();
-            Watcher.Changed += Watcher_Changed;
+            Watcher.EnableRaisingEvents = true;
         }
         /// <summary>
         /// 将数据显示在TbInfo上
@@ -166,7 +163,7 @@ namespace Client
         /// </summary>
         private void HandleTasks()
         {
-   
+            Console.WriteLine("HandleTasks");
             for (int i = 0; i < tasks.Count; i++)
             {
                 if (tasks[i].Handled == false && tasks[i].sender == "server")
@@ -174,7 +171,6 @@ namespace Client
                     HandleTask(tasks[i]);
                 }
             }
-            WriteConnectTxt();
 
         }
         /// <summary>
