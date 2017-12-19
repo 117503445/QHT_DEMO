@@ -70,6 +70,7 @@ namespace Client
         /// <param name="e"></param>
         private void Watcher_Changed(object sender, FileSystemEventArgs e)
         {
+
             Thread.Sleep(100);//睡一会,防止线程占用
             LoadConnectTxt();
             HandleTasks();
@@ -80,25 +81,34 @@ namespace Client
         private void LoadConnectTxt()
         {
             tasks = GetTask(File.ReadAllLines(connectPath, Encoding.Default).ToList());
+            foreach (var item in tasks)
+            {
+                Console.WriteLine(item);
+            }
             ShowInfo();
         }
         /// <summary>
         /// 将任务清单写入Connect.txt
         /// </summary>
-        private void WriteConnectTxt() {
-            List<string> list = new List<string>(tasks.Count);
-            for (int i = 0; i < list.Count; i++)
+        private void WriteConnectTxt()
+        {
+            Watcher.Changed-= Watcher_Changed;
+            List<string> list = new List<string>();
+            Console.WriteLine("!!!!!!!!!!!!"+list.Count);
+            for (int i = 0; i < tasks.Count; i++)
             {
-                list[i] = tasks[i].ToString();
+                list.Add(tasks[i].ToString());
             }
-            File.WriteAllLines(connectPath,list);
+            File.WriteAllLines(connectPath, list);
             LoadConnectTxt();
+            Watcher.Changed += Watcher_Changed;
         }
         /// <summary>
         /// 将数据显示在TbInfo上
         /// </summary>
         private void ShowInfo()
         {
+            Console.WriteLine("ShowInfo");
             TbInfo.Dispatcher.Invoke(new Action(delegate
             {
                 TbInfo.Text = "";
@@ -156,6 +166,7 @@ namespace Client
         /// </summary>
         private void HandleTasks()
         {
+   
             for (int i = 0; i < tasks.Count; i++)
             {
                 if (tasks[i].Handled == false && tasks[i].sender == "server")
@@ -164,7 +175,7 @@ namespace Client
                 }
             }
             WriteConnectTxt();
-            
+
         }
         /// <summary>
         /// 处理单个的任务
@@ -180,11 +191,13 @@ namespace Client
             task.Handled = true;//已处理该任务
 
 
-            Task newTask = new Task();
-            task.sender = netName;
-            task.Handled = false;
-            task.methodName = "return";
-            task.methodParameters = result;
+            Task newTask = new Task
+            {
+                sender = netName,
+                Handled = false,
+                methodName = "return",
+                methodParameters = result
+            };
             tasks.Add(newTask);
         }
     }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Demo", "CSharp_Demo\CSharp_Demo.csproj", "{88995716-45D3-4386-A17D-95E012471E0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxtConnect", "TxtConnect\TxtConnect.csproj", "{40806370-4ADF-449F-B705-86AEC504A167}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{88995716-45D3-4386-A17D-95E012471E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88995716-45D3-4386-A17D-95E012471E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88995716-45D3-4386-A17D-95E012471E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40806370-4ADF-449F-B705-86AEC504A167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40806370-4ADF-449F-B705-86AEC504A167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40806370-4ADF-449F-B705-86AEC504A167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40806370-4ADF-449F-B705-86AEC504A167}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
