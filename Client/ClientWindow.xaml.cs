@@ -25,7 +25,6 @@ namespace Client
         /// 网名
         /// </summary>
         static string netName = "ip";
-
         /// <summary>
         /// @"\\192.168.2.233\FolderShare"
         /// </summary>
@@ -42,7 +41,6 @@ namespace Client
         /// 监控连接文件
         /// </summary>
         FileSystemWatcher Watcher = new FileSystemWatcher();
-
         /// <summary>
         /// 任务清单
         /// </summary>
@@ -215,7 +213,6 @@ namespace Client
         /// 方法参数
         /// </summary>
         public string methodParameters = "";
-
         public override string ToString()
         {
             return string.Format("{0};{1};{2};{3}", sender, Handled, methodName, methodParameters);
@@ -239,12 +236,10 @@ namespace Client
             }
             return result;
         }
-
         public static void CopyFile(string sourceFileName, string destFileName)
         {
             destFileName = MainWindow.mypath + "\\" + destFileName;
             File.Copy(sourceFileName, destFileName);
         }
-
     }
 }

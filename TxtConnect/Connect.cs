@@ -115,7 +115,6 @@ namespace TxtConnect
             File.WriteAllLines(connectPath, list);
             Watcher.EnableRaisingEvents = true;
         }
-
         /// <summary>
         /// 将字符串转化为任务清单
         /// </summary>
@@ -159,10 +158,8 @@ namespace TxtConnect
         /// </summary>
         private void HandleTask(Task task)
         {
-
             Type type = typeof(MethodCollection);
             object[] parameters = task.methodParameters.Split(',');
-            // MethodCollection methodCollection = new MethodCollection();
             string result = (string)type.GetMethod(task.methodName).Invoke(null, parameters);
             task.Handled = true;//已处理该任务
             Task newTask = new Task
