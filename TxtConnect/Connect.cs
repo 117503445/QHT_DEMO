@@ -26,6 +26,10 @@ namespace TxtConnect
         /// </summary>
         string connectPath = "";
         /// <summary>
+        /// 任务清单
+        /// </summary>
+        List<Task> tasks = new List<Task>();
+        /// <summary>
         /// 任务
         /// </summary>
         class Task
@@ -52,29 +56,41 @@ namespace TxtConnect
             }
         }
         /// <summary>
-        /// 任务清单
+        /// 似乎文件发生了改变
         /// </summary>
-        List<Task> tasks = new List<Task>();
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Watcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            Console.WriteLine("Watcher_Changed");
+            Thread.Sleep(100);//睡一会,防止线程占用
+            LoadConnectTxt();
+            HandleTasks();
+            WriteConnectTxt();
+            ShowInfo();
+        }
         /// <summary>
         /// 读取Connect.txt,更新任务清单
         /// </summary>
         private void LoadConnectTxt()
         {
+            Console.WriteLine("LoadConnectTxt");
             tasks = GetTask(File.ReadAllLines(connectPath, Encoding.Default).ToList());
-           
         }
         /// <summary>
         /// 将任务清单写入Connect.txt
         /// </summary>
         private void WriteConnectTxt()
         {
-            List<string> list = new List<string>(tasks.Count);
-            for (int i = 0; i < list.Count; i++)
+            Console.WriteLine("WriteConnectTxt");
+            Watcher.EnableRaisingEvents = false;
+            List<string> list = new List<string>();
+            for (int i = 0; i < tasks.Count; i++)
             {
-                list[i] = tasks[i].ToString();
+                list.Add(tasks[i].ToString());
             }
             File.WriteAllLines(connectPath, list);
-            LoadConnectTxt();
+            Watcher.EnableRaisingEvents = true;
         }
 
         /// <summary>
@@ -95,8 +111,48 @@ namespace TxtConnect
                 catch (Exception)
                 {
                 }
+
+
             }
             return tasks;
+        }
+        /// <summary>
+        /// 处理任务清单
+        /// </summary>
+        private void HandleTasks()
+        {
+            Console.WriteLine("HandleTasks");
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                if (tasks[i].Handled == false && tasks[i].sender == "server")
+                {
+                    HandleTask(tasks[i]);
+                }
+            }
+
+        }
+        /// <summary>
+        /// 处理单个的任务
+        /// </summary>
+        private void HandleTask(Task task)
+        {
+
+            Type type = typeof(MethodCollection);
+            object[] parameters = task.methodParameters.Split(',');
+            // MethodCollection methodCollection = new MethodCollection();
+            string result = (string)type.GetMethod(task.methodName).Invoke(null, parameters);
+
+            task.Handled = true;//已处理该任务
+
+
+            Task newTask = new Task
+            {
+                sender = netName,
+                Handled = false,
+                methodName = "return",
+                methodParameters = result
+            };
+            tasks.Add(newTask);
         }
     }
 }
