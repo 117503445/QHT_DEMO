@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TxtConnect
 {
     public class Connect
     {
+        /// <summary>
+        /// 新建一个基于共享文件夹的连接
+        /// </summary>
+        /// <param name="netName">网民</param>
+        /// <param name="path">路径,exp:@"\\192.168.2.233\FolderShare"</param>
+        public Connect(string netName,string path) {
+            this.netName = netName;
+            this.path = path;
+            mypath = path + "\\"+netName;
+            connectPath = mypath + "\\Connect.txt";
+        }
         /// <summary>
         /// 网名
         /// </summary>
@@ -26,9 +38,20 @@ namespace TxtConnect
         /// </summary>
         string connectPath = "";
         /// <summary>
+        /// 监控连接文件
+        /// </summary>
+        FileSystemWatcher Watcher = new FileSystemWatcher();
+        /// <summary>
         /// 任务清单
         /// </summary>
         List<Task> tasks = new List<Task>();
+
+        public delegate void InfoHandler();
+        /// <summary>
+        /// tasks发生更新
+        /// </summary>
+        public event InfoHandler ShowInfo;
+
         /// <summary>
         /// 任务
         /// </summary>
@@ -141,10 +164,7 @@ namespace TxtConnect
             object[] parameters = task.methodParameters.Split(',');
             // MethodCollection methodCollection = new MethodCollection();
             string result = (string)type.GetMethod(task.methodName).Invoke(null, parameters);
-
             task.Handled = true;//已处理该任务
-
-
             Task newTask = new Task
             {
                 sender = netName,
