@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_Color_Demo", "Wpf_Color_Demo\Wpf_Color_Demo.csproj", "{2C294DFF-4F23-4F39-A115-72359BCC5B1F}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Demo", "CSharp_Demo\CSharp_Demo.csproj", "{88995716-45D3-4386-A17D-95E012471E0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxtConnect", "TxtConnect\TxtConnect.csproj", "{40806370-4ADF-449F-B705-86AEC504A167}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetConnect", "TxtConnect\NetConnect.csproj", "{40806370-4ADF-449F-B705-86AEC504A167}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

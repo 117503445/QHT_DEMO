@@ -6,21 +6,37 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TxtConnect
+namespace NetConnect
 {
-    public class Connect
+    /// <summary>
+    /// 基于共享文件夹中文本文件的连接
+    /// </summary>
+    public class TxtConnect
     {
         /// <summary>
         /// 新建一个基于共享文件夹的连接
         /// </summary>
         /// <param name="netName">网民</param>
         /// <param name="path">路径,exp:@"\\192.168.2.233\FolderShare"</param>
-        public Connect(string netName, string path)
+        public TxtConnect(string netName, string path)
         {
             this.netName = netName;
             this.path = path;
             mypath = path + "\\" + netName;
             connectPath = mypath + "\\Connect.txt";
+
+            if (!File.Exists(connectPath))
+            {
+                Directory.CreateDirectory(path + @"\ip");
+                File.Create(connectPath).Close();
+            }
+
+            Watcher.Path = mypath;
+            Watcher.EnableRaisingEvents = true;
+            Watcher.Filter = "connect.txt";
+            Watcher.Changed += Watcher_Changed;
+
+            Watcher_Changed(null, null);
         }
         /// <summary>
         /// 网名
@@ -47,13 +63,13 @@ namespace TxtConnect
         /// </summary>
         List<Task> tasks = new List<Task>();
 
-        public delegate void InfoHandler();
+        public delegate void InfoHandler(List<string> Info);
         /// <summary>
         /// tasks发生更新,要求刷新
         /// </summary>
         public event InfoHandler ShowInfo;
 
-        public delegate void MethodHandler(string in_methodName, string in_methodParameters, out string out_methodName,out string out_methodParameters);
+        public delegate void MethodHandler(string in_methodName, string in_methodParameters, out string out_methodName, out string out_methodParameters);
         /// <summary>
         /// 向外部类请求结果
         /// </summary>
@@ -84,6 +100,19 @@ namespace TxtConnect
             {
                 return string.Format("{0};{1};{2};{3}", sender, Handled, methodName, methodParameters);
             }
+
+        }
+        /// <summary>
+        /// 注册事件后需要手动更新以在第一次显示信息:(
+        /// </summary>
+        public void DisplayInfo()
+        {
+            List<string> list = new List<string>();
+            foreach (var item in tasks)
+            {
+                list.Add(item.ToString());
+            }
+            ShowInfo?.Invoke(list);
         }
         /// <summary>
         /// 似乎文件发生了改变
@@ -97,7 +126,7 @@ namespace TxtConnect
             LoadConnectTxt();
             HandleTasks();
             WriteConnectTxt();
-            ShowInfo();
+            DisplayInfo();
         }
         /// <summary>
         /// 读取Connect.txt,更新任务清单
@@ -165,10 +194,8 @@ namespace TxtConnect
         /// </summary>
         private void HandleTask(Task task)
         {
-          GetMethod(task.methodName,task.methodParameters,out string out_methodName,out string out_methodParameters);
-            //Type type = typeof(MethodCollection);
-            //object[] parameters = task.methodParameters.Split(',');
-            //string result = (string)type.GetMethod(task.methodName).Invoke(null, parameters);
+            GetMethod(task.methodName, task.methodParameters, out string out_methodName, out string out_methodParameters);
+
             task.Handled = true;//已处理该任务
             Task newTask = new Task
             {
