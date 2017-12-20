@@ -53,7 +53,7 @@ namespace TxtConnect
         /// </summary>
         public event InfoHandler ShowInfo;
 
-        public delegate string MethodHandler(string methodName, string methodParameters);
+        public delegate void MethodHandler(string in_methodName, string in_methodParameters, out string out_methodName,out string out_methodParameters);
         /// <summary>
         /// 向外部类请求结果
         /// </summary>
@@ -165,7 +165,7 @@ namespace TxtConnect
         /// </summary>
         private void HandleTask(Task task)
         {
-            string result = GetMethod(task.methodName,task.methodParameters);
+          GetMethod(task.methodName,task.methodParameters,out string out_methodName,out string out_methodParameters);
             //Type type = typeof(MethodCollection);
             //object[] parameters = task.methodParameters.Split(',');
             //string result = (string)type.GetMethod(task.methodName).Invoke(null, parameters);
@@ -174,8 +174,8 @@ namespace TxtConnect
             {
                 sender = netName,
                 Handled = false,
-                methodName = "return",
-                methodParameters = result
+                methodName = out_methodName,
+                methodParameters = out_methodParameters
             };
             tasks.Add(newTask);
         }
