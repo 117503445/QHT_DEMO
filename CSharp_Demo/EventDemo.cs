@@ -11,21 +11,32 @@ namespace CSharp_Demo
         public static void Main()
         {
             Clicent c = new Clicent();
-            c.PEvent += Handle;
-            c.Call("");
+            c.Shijian += Handle1;
+            c.Shijian += Handle2;
+            c.Call();
             Console.ReadLine();
         }
-        static string Handle(string s) { return Hello(); }
+        static void Handle2(out string s1, out string s2)
+        {
+            s1 = "Handle2,s1";
+            s2 = "Handle2,s2";
+        }
+        static void Handle1(out string s1, out string s2)
+        {
+            s1 = "Handle1,s1";
+            s2 = "Handle1,s2";
+        }
         static string Hello() { return "Hello"; }
     }
     class Clicent
     {
-        public delegate string P(string s);
-        public event P PEvent;
-        public void Call(string receive)
+        public delegate void weituo(out string s1, out string s2);
+        public event weituo Shijian;
+        public void Call()
         {
-            string result = PEvent(receive);
-            Console.WriteLine(result);
+            Shijian(out string s1, out string s2);
+            Console.WriteLine(s1);
+            Console.WriteLine(s2);
         }
 
 

@@ -15,10 +15,11 @@ namespace TxtConnect
         /// </summary>
         /// <param name="netName">网民</param>
         /// <param name="path">路径,exp:@"\\192.168.2.233\FolderShare"</param>
-        public Connect(string netName,string path) {
+        public Connect(string netName, string path)
+        {
             this.netName = netName;
             this.path = path;
-            mypath = path + "\\"+netName;
+            mypath = path + "\\" + netName;
             connectPath = mypath + "\\Connect.txt";
         }
         /// <summary>
@@ -48,9 +49,15 @@ namespace TxtConnect
 
         public delegate void InfoHandler();
         /// <summary>
-        /// tasks发生更新
+        /// tasks发生更新,要求刷新
         /// </summary>
         public event InfoHandler ShowInfo;
+
+        public delegate string MethodHandler(string methodName, string methodParameters);
+        /// <summary>
+        /// 向外部类请求结果
+        /// </summary>
+        public event MethodHandler GetMethod;
 
         /// <summary>
         /// 任务
@@ -158,9 +165,10 @@ namespace TxtConnect
         /// </summary>
         private void HandleTask(Task task)
         {
-            Type type = typeof(MethodCollection);
-            object[] parameters = task.methodParameters.Split(',');
-            string result = (string)type.GetMethod(task.methodName).Invoke(null, parameters);
+            string result = GetMethod(task.methodName,task.methodParameters);
+            //Type type = typeof(MethodCollection);
+            //object[] parameters = task.methodParameters.Split(',');
+            //string result = (string)type.GetMethod(task.methodName).Invoke(null, parameters);
             task.Handled = true;//已处理该任务
             Task newTask = new Task
             {
