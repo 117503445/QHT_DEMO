@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Threading;
 using Drawing = System.Drawing;
+using System.ComponentModel;
+
 namespace Wpf_Color_Demo
 {
     /// <summary>
@@ -38,7 +40,6 @@ namespace Wpf_Color_Demo
 
 
         }
-        D de = new D(IsBlack);
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
             //    InBlackStyle(this);
@@ -80,36 +81,23 @@ namespace Wpf_Color_Demo
         /// <returns></returns>
         private static bool IsBlack(Window window, int deltaX, int deltaY)
         {
-            Thread.Sleep(5000);
-            bool b = true;
-            window.Dispatcher.Invoke(new Action(delegate
-                {
-
-                    System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-                    sw.Start();
-
-                    int Settings_Default_dpi = 3;
-
-                    Drawing.Rectangle rc = new Drawing.Rectangle((int)window.Left + deltaX, (int)window.Top + deltaY, 1, 1);
-                    var bitmap = new Drawing.Bitmap(1, 1);
-                    using (Drawing.Graphics g = Drawing.Graphics.FromImage(bitmap))
-                    {
-                        g.CopyFromScreen((int)(rc.X * Settings_Default_dpi), (int)(rc.Y * Settings_Default_dpi), 0, 0, rc.Size);
-                    }
-
-                    Drawing.Color color = bitmap.GetPixel(0, 0);
-                    bitmap.Dispose();
-
-                    if (color.R + color.G + color.B > 384)
-                    {
-                        b = true;
-                    }
-                    else
-                    {
-                        b = false;
-                    }
-                }));
-            return b;
+            int Settings_Default_dpi = 1;
+            Drawing.Rectangle rc = new Drawing.Rectangle((int)window.Left + deltaX, (int)window.Top + deltaY, 1, 1);
+            var bitmap = new Drawing.Bitmap(1, 1);
+            using (Drawing.Graphics g = Drawing.Graphics.FromImage(bitmap))
+            {
+                g.CopyFromScreen((int)(rc.X * Settings_Default_dpi), (int)(rc.Y * Settings_Default_dpi), 0, 0, rc.Size);
+            }
+            Drawing.Color color = bitmap.GetPixel(0, 0);
+            bitmap.Dispose();
+            if (color.R + color.G + color.B > 384)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
 
@@ -122,32 +110,43 @@ namespace Wpf_Color_Demo
         {
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
-            bool d = false;
-            if (d)
+            //声明
+            BackgroundWorker worker = new BackgroundWorker();
+
+            // worker 要做的事情 使用了匿名的事件响应函数
+            worker.DoWork += (o, ea) =>
             {
-                for (int i = 0; i < 20; i++)
+                //WPF中线程只能控制自己创建的控件，
+                //如果要修改主线程创建的MainWindow界面的内容,
+                //可以委托主线程的Dispatcher处理。
+                //在这里，委托内容为一个匿名的Action对象。
+                Dispatcher.Invoke((Action)(() =>
                 {
-                    InBlackStyle(this);
+
+                    Console.WriteLine("start");
+                }));
+
+                for (int i = 0; i < 100; i++)
+                {
+                    Console.WriteLine(i);
+                   Console.WriteLine(InBlackStyle(this));
                 }
-            }
-            else
+
+            };
+            // worker 完成事件响应
+            worker.RunWorkerCompleted += (o, ea) =>
             {
-                for (int i = 0; i < 10; i++)
+                Dispatcher.Invoke((Action)(() =>
                 {
-                de.BeginInvoke(this, 0, 0, new AsyncCallback(Done), null);
-                }
 
 
 
-            }
+                }));
+            };
+
+            //注意：运行了下面这一行代码，worker才真正开始工作。上面都只是声明定义而已。
+            worker.RunWorkerAsync();
             Console.WriteLine("总" + sw.ElapsedMilliseconds);
         }
-        void Done(IAsyncResult itfAR)
-        {
-            AsyncResult ar = (AsyncResult)itfAR;
-            D b = (D)ar.AsyncDelegate;
-            Console.WriteLine(b.EndInvoke(itfAR));
-        }
-        public delegate bool D(Window window, int x, int y);
     }
 }

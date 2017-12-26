@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_Color_Demo", "Wpf_Color_Demo\Wpf_Color_Demo.csproj", "{2C294DFF-4F23-4F39-A115-72359BCC5B1F}"
 EndProject
@@ -12,6 +12,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Demo", "CSharp_Demo\CSharp_Demo.csproj", "{88995716-45D3-4386-A17D-95E012471E0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetConnect", "TxtConnect\NetConnect.csproj", "{40806370-4ADF-449F-B705-86AEC504A167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHT_DLL_Demo", "CHT_DLL_Demo\CHT_DLL_Demo.csproj", "{AD26F4F1-E57B-453A-BB67-926CAFC18939}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Window_Demo", "WPF_Window_Demo\WPF_Window_Demo.csproj", "{3A6CD8F6-CC41-44D0-B078-047E2039C0D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setting_Demo", "Setting_Demo\Setting_Demo.csproj", "{C8B81B38-D29C-4D43-97FA-F34A2F8DAE72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{40806370-4ADF-449F-B705-86AEC504A167}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40806370-4ADF-449F-B705-86AEC504A167}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40806370-4ADF-449F-B705-86AEC504A167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD26F4F1-E57B-453A-BB67-926CAFC18939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD26F4F1-E57B-453A-BB67-926CAFC18939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD26F4F1-E57B-453A-BB67-926CAFC18939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD26F4F1-E57B-453A-BB67-926CAFC18939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A6CD8F6-CC41-44D0-B078-047E2039C0D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A6CD8F6-CC41-44D0-B078-047E2039C0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A6CD8F6-CC41-44D0-B078-047E2039C0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6CD8F6-CC41-44D0-B078-047E2039C0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B81B38-D29C-4D43-97FA-F34A2F8DAE72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B81B38-D29C-4D43-97FA-F34A2F8DAE72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B81B38-D29C-4D43-97FA-F34A2F8DAE72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B81B38-D29C-4D43-97FA-F34A2F8DAE72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

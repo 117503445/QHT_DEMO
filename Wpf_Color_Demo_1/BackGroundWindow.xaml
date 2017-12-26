@@ -1,0 +1,17 @@
+﻿<Window x:Class="Wpf_Color_Demo.BackGroundWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_Color_Demo"
+        mc:Ignorable="d"
+        Title="BackGroundWindow" Height="319.537" Width="578.937" Topmost="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="White"></Grid>
+        <Grid Grid.Column="1" Background="Black"></Grid>
+    </Grid>
+</Window>
