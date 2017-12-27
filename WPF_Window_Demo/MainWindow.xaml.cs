@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WPF_Window_Demo
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// MainWIndow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : BaseWindow
+    public partial class MainWIndow : BaseWindow
     {
-        public MainWindow()
+        public MainWIndow()
         {
             InitializeComponent();
+            Console.WriteLine(i);
         }
     }
 }
