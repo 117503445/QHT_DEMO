@@ -23,6 +23,8 @@ namespace Wpf_Color_Demo
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,7 +43,24 @@ namespace Wpf_Color_Demo
         D de = new D(IsBlack);
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            //    InBlackStyle(this);
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+            bool d = false;
+            if (d)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    InBlackStyle(this);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    de.BeginInvoke(this, 0, 0, new AsyncCallback(Done), null);
+                }
+            }
+            //Console.WriteLine("总" + sw.ElapsedMilliseconds);
         }
 
         /// <summary>
@@ -80,7 +99,6 @@ namespace Wpf_Color_Demo
         /// <returns></returns>
         private static bool IsBlack(Window window, int deltaX, int deltaY)
         {
-            Thread.Sleep(5000);
             bool b = true;
             window.Dispatcher.Invoke(new Action(delegate
                 {
@@ -120,33 +138,24 @@ namespace Wpf_Color_Demo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
-            bool d = false;
-            if (d)
-            {
-                for (int i = 0; i < 20; i++)
-                {
-                    InBlackStyle(this);
-                }
-            }
-            else
-            {
-                for (int i = 0; i < 10; i++)
-                {
-                de.BeginInvoke(this, 0, 0, new AsyncCallback(Done), null);
-                }
 
-
-
-            }
-            Console.WriteLine("总" + sw.ElapsedMilliseconds);
         }
         void Done(IAsyncResult itfAR)
         {
             AsyncResult ar = (AsyncResult)itfAR;
             D b = (D)ar.AsyncDelegate;
-            Console.WriteLine(b.EndInvoke(itfAR));
+            bool result = b.EndInvoke(itfAR);
+            Console.WriteLine(result);
+            Txt.Dispatcher.Invoke(new Action(delegate { 
+            if (result)
+            {
+                Txt.Foreground = Brushes.Black;
+            }
+            else
+            {
+                Txt.Foreground = Brushes.White;
+            }
+        }));
         }
         public delegate bool D(Window window, int x, int y);
     }

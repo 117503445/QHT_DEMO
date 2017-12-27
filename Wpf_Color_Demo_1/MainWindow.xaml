@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="159.581" Width="291.41" AllowsTransparency="True" WindowStyle="None" Background="#19FFFFFF" MouseLeftButtonDown="Window_MouseLeftButtonDown" Topmost="True">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="31" Margin="93,63,0,0" VerticalAlignment="Top" Width="111" Click="Button_Click"/>
-
+       
     </Grid>
 </Window>
