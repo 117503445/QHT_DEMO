@@ -146,16 +146,17 @@ namespace Wpf_Color_Demo
             D b = (D)ar.AsyncDelegate;
             bool result = b.EndInvoke(itfAR);
             Console.WriteLine(result);
-            Txt.Dispatcher.Invoke(new Action(delegate { 
-            if (result)
+            Txt.Dispatcher.Invoke(new Action(delegate
             {
-                Txt.Foreground = Brushes.Black;
-            }
-            else
-            {
-                Txt.Foreground = Brushes.White;
-            }
-        }));
+                if (result)
+                {
+                    Txt.Foreground = Brushes.Black;
+                }
+                else
+                {
+                    Txt.Foreground = Brushes.White;
+                }
+            }));
         }
         public delegate bool D(Window window, int x, int y);
     }

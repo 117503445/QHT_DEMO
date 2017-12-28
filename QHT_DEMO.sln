@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setting_Demo", "Setting_Dem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_ASYNC", "WPF_ASYNC\WPF_ASYNC.csproj", "{16A6ED93-D016-436D-AB98-7220479CA52D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "自启动", "自启动\自启动.csproj", "{AF058BF8-2C30-4EB8-8286-A43CA1B91701}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hide_Mouse", "Hide_Mouse\Hide_Mouse.csproj", "{50FBC410-8EFF-4D24-BBB1-5F67F63FD992}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{16A6ED93-D016-436D-AB98-7220479CA52D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16A6ED93-D016-436D-AB98-7220479CA52D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16A6ED93-D016-436D-AB98-7220479CA52D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF058BF8-2C30-4EB8-8286-A43CA1B91701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF058BF8-2C30-4EB8-8286-A43CA1B91701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF058BF8-2C30-4EB8-8286-A43CA1B91701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF058BF8-2C30-4EB8-8286-A43CA1B91701}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50FBC410-8EFF-4D24-BBB1-5F67F63FD992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50FBC410-8EFF-4D24-BBB1-5F67F63FD992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50FBC410-8EFF-4D24-BBB1-5F67F63FD992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50FBC410-8EFF-4D24-BBB1-5F67F63FD992}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
