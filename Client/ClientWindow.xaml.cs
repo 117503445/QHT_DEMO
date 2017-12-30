@@ -25,13 +25,13 @@ namespace Client
         /// <summary>
         /// 网名
         /// </summary>
-        public static string netName = "ip";
+        public static string netName = "client";
         /// <summary>
         /// @"\\192.168.2.233\FolderShare"
         /// </summary>
-        public static string path = @"\\192.168.2.233\FolderShare";
+        public static string path = @"\\DESKTOP-ASUS\FolderShare";
 
-        public static NetConnect.TxtConnect connect;
+        public static TxtConnect connect;
 
         public MainWindow()
         {
@@ -68,21 +68,24 @@ namespace Client
         {
             TextBox t = ((TextBox)sender);
             string message = t.Text;
-            List<string> tasks = new List<string>
-            {
-                message
-            };
-            tasks[0] = string.Format("{0};{1};{2}", netName, false, tasks[0]);
+            //List<string> tasks = new List<string>
+            //{
+            //    message
+            //};
+            //tasks[0] = string.Format("{0};{1};{2}", netName, false, tasks[0]);
+            string s0 = message.Split(' ')[0];
+            string s1 = message.Split(' ')[1];
             if (e.Key == Key.Enter)
             {
                 //File.AppendAllLines(connectPath, tasks);
+                connect.SendInfo(s0,s1);
                 t.Text = "";
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            connect = new NetConnect.TxtConnect(netName, path);
+            connect = new TxtConnect(netName, path);
             connect.ShowInfo += Connect_ShowInfo;
             connect.GetMethod += Connect_GetMethod;
             connect.DisplayInfo();

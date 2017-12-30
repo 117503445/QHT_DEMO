@@ -27,7 +27,7 @@ namespace NetConnect
 
             if (!File.Exists(connectPath))
             {
-                Directory.CreateDirectory(path + @"\ip");
+                Directory.CreateDirectory(path + @"\" + netName);
                 File.Create(connectPath).Close();
             }
 
@@ -74,7 +74,6 @@ namespace NetConnect
         /// 向外部类请求结果
         /// </summary>
         public event MethodHandler GetMethod;
-
         /// <summary>
         /// 任务
         /// </summary>
@@ -113,6 +112,15 @@ namespace NetConnect
                 list.Add(item.ToString());
             }
             ShowInfo?.Invoke(list);
+        }
+        /// <summary>
+        /// 输出信息
+        /// </summary>
+        /// <param name="methodName"></param>
+        /// <param name="methodParameters"></param>
+        public void SendInfo(string methodName, string methodParameters)
+        {
+            File.AppendAllText(connectPath, string.Format("{0};{1};{2};{3}", netName, false, methodName, methodParameters));
         }
         /// <summary>
         /// 似乎文件发生了改变
