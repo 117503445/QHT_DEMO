@@ -18,25 +18,29 @@ namespace NetConnect
         /// </summary>
         /// <param name="netName">网民</param>
         /// <param name="path">路径,exp:@"\\192.168.2.233\FolderShare"</param>
-        public TxtConnect(string netName, string path)
+        public TxtConnect(string netName, string path, bool ServerMode)
         {
             this.netName = netName;
             this.path = path;
             mypath = path + "\\" + netName;
             connectPath = mypath + "\\Connect.txt";
-
-            if (!File.Exists(connectPath))
+            serverMode = ServerMode;
+            if (!serverMode)
             {
-                Directory.CreateDirectory(path + @"\" + netName);
-                File.Create(connectPath).Close();
+                if (!File.Exists(connectPath))
+                {
+                    Directory.CreateDirectory(path + @"\" + netName);
+                    File.Create(connectPath).Close();
+                }
+                Watcher.Path = mypath;
+                Watcher.EnableRaisingEvents = true;
+                Watcher.Filter = "connect.txt";
+                Watcher.Changed += Watcher_Changed;
+
+                Watcher_Changed(null, null);
             }
 
-            Watcher.Path = mypath;
-            Watcher.EnableRaisingEvents = true;
-            Watcher.Filter = "connect.txt";
-            Watcher.Changed += Watcher_Changed;
 
-            Watcher_Changed(null, null);
         }
         /// <summary>
         /// 网名
@@ -62,7 +66,7 @@ namespace NetConnect
         /// 任务清单
         /// </summary>
         List<Task> tasks = new List<Task>();
-
+        bool serverMode = false;
         public delegate void InfoHandler(List<string> Info);
         /// <summary>
         /// tasks发生更新,要求刷新
@@ -190,7 +194,7 @@ namespace NetConnect
             Console.WriteLine("HandleTasks");
             for (int i = 0; i < tasks.Count; i++)
             {
-                if (tasks[i].Handled == false && tasks[i].sender == "server")
+                if (tasks[i].Handled == false && tasks[i].sender != netName)
                 {
                     HandleTask(tasks[i]);
                 }
