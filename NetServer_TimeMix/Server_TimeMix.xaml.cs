@@ -36,7 +36,6 @@ namespace NetServer_TimeMix
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             connect.ShowInfo += Connect_ShowInfo;
             connect.GetMethod += Connect_GetMethod;
             connect.DisplayInfo();
@@ -55,7 +54,7 @@ namespace NetServer_TimeMix
             TbInfo.Dispatcher.Invoke(new Action(delegate
             {
                 TbInfo.Text = "";
-                foreach (var item in list)
+                foreach (var item in Info)
                 {
                     TbInfo.Text += item + "\n";
                 }
@@ -99,7 +98,7 @@ namespace NetServer_TimeMix
             }
             public static void CopyFile(string sourceFileName, string destFileName)
             {
-                destFileName = MainWindow.path + "\\" + MainWindow.netName + "\\" + destFileName;
+                destFileName =path + "\\" + netName + "\\" + destFileName;
                 File.Copy(sourceFileName, destFileName);
             }
         }

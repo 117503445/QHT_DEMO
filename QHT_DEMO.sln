@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetConnect", "TxtConnect\Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "自启动", "自启动\自启动.csproj", "{AF058BF8-2C30-4EB8-8286-A43CA1B91701}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetServer_TimeMix", "NetServer_TimeMix\NetServer_TimeMix.csproj", "{D948B423-435C-461C-AF61-02E38A330766}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AF058BF8-2C30-4EB8-8286-A43CA1B91701}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF058BF8-2C30-4EB8-8286-A43CA1B91701}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF058BF8-2C30-4EB8-8286-A43CA1B91701}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D948B423-435C-461C-AF61-02E38A330766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D948B423-435C-461C-AF61-02E38A330766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D948B423-435C-461C-AF61-02E38A330766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D948B423-435C-461C-AF61-02E38A330766}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

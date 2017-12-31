@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NetServer_TimeMix"
         mc:Ignorable="d"
-        Title="Server_TimeMix" Height="300" Width="300">
+        Title="Server_TimeMix" Height="364.286" Width="467.143" Loaded="Window_Loaded">
     <Grid>
-        
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="385" Margin="31,281,0,0" KeyDown="TextBox_KeyDown"/>
+        <TextBox x:Name="TbInfo" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="31,26,0,0" Height="196" Width="385"/>
     </Grid>
 </Window>
