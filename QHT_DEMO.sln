@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemWatcher_Demo", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeIo", "SafeIo\SafeIo.csproj", "{5EC2B528-AEB4-41CC-83B6-5B35D2632950}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingDemo", "SettingDemo\SettingDemo.csproj", "{C3ED2BB9-34B3-4D06-9B25-4544AD74D542}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MD_Demo", "MD_Demo\MD_Demo.csproj", "{29868A8E-5216-42C3-85F7-5BD6730CBE3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{5EC2B528-AEB4-41CC-83B6-5B35D2632950}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EC2B528-AEB4-41CC-83B6-5B35D2632950}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EC2B528-AEB4-41CC-83B6-5B35D2632950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3ED2BB9-34B3-4D06-9B25-4544AD74D542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3ED2BB9-34B3-4D06-9B25-4544AD74D542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3ED2BB9-34B3-4D06-9B25-4544AD74D542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3ED2BB9-34B3-4D06-9B25-4544AD74D542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29868A8E-5216-42C3-85F7-5BD6730CBE3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29868A8E-5216-42C3-85F7-5BD6730CBE3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29868A8E-5216-42C3-85F7-5BD6730CBE3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29868A8E-5216-42C3-85F7-5BD6730CBE3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
