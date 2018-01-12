@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MD_Demo", "MD_Demo\MD_Demo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Open_PPT", "Open_PPT\Open_PPT.csproj", "{E3A2254A-FA16-49F0-9351-962B3AD47E9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathDemo", "MathDemo\MathDemo.csproj", "{C898129A-02BE-48DA-BD96-25D5B058916B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{E3A2254A-FA16-49F0-9351-962B3AD47E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3A2254A-FA16-49F0-9351-962B3AD47E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3A2254A-FA16-49F0-9351-962B3AD47E9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C898129A-02BE-48DA-BD96-25D5B058916B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C898129A-02BE-48DA-BD96-25D5B058916B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C898129A-02BE-48DA-BD96-25D5B058916B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C898129A-02BE-48DA-BD96-25D5B058916B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
