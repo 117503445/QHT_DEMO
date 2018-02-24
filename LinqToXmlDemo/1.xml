@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Logs>
-  <Log checkKind="NightEye" dayOfWeek="1" missId="47,44,45,16,34" time="1,29,20,22" />
-  <Log checkKind="NightEye" dayOfWeek="1" missId="47,44,45,16" time="1,29,20,24" />
-  <Log checkKind="NoonSleep" dayOfWeek="2" missId="" time="1,30,12,46" />
-  <Log checkKind="NoonSleep" dayOfWeek="2" missId="13" time="1,30,12,46" />
-  <Log checkKind="NightStudy" dayOfWeek="2" missId="41,23" time="1,30,17,17" />
-</Logs>
