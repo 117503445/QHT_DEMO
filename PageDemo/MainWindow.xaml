@@ -1,0 +1,44 @@
+﻿<Window x:Class="PageDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PageDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged">
+            <ListBoxItem Name="LsteCheck">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE77F;" />
+                    <TextBlock Text="签到" FontSize="24" Margin="20,0,0,0" />
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem Name="LsteOption">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE7B8;" />
+                    <TextBlock Text="选项" FontSize="24" Margin="20,0,0,0" />
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem Name="LsteAdmin">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE912;" />
+                    <TextBlock Text="管理" FontSize="24" Margin="20,0,0,0" />
+                </StackPanel>
+            </ListBoxItem >
+            <ListBoxItem Name="LsteAbout">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE946;" />
+                    <TextBlock Text="关于" FontSize="24" Margin="20,0,0,0" />
+                </StackPanel>
+            </ListBoxItem >
+        </ListBox>
+        <Frame Name="FrameMain" Grid.Column="1">
+
+        </Frame>
+    </Grid>
+</Window>
