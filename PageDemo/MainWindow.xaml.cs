@@ -27,15 +27,30 @@ namespace PageDemo
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (LsteCheck.IsSelected)
-            {
-                FrameMain.Content = new Page1();
-            }
-            else if (LsteAbout.IsSelected)
-            {
-                FrameMain.Content = new Page2();
-            }
+            //if (LsteCheck.IsSelected)
+            //{
+            //    FrameMain.Content = new Page1();
+            //}
+            //else if (LsteAbout.IsSelected)
+            //{
+            //    FrameMain.Content = new Page2();
+            //}
           
+        }
+
+        private void Btn1_Click(object sender, RoutedEventArgs e)
+        {
+            FrameMain.Content = new Page1();
+        }
+
+        private void Btn2_Click(object sender, RoutedEventArgs e)
+        {
+            FrameMain.Content = new Page2();
+        }
+
+        private void Btn3_Click(object sender, RoutedEventArgs e)
+        {
+            FrameMain.Content = new Page3();
         }
     }
 }

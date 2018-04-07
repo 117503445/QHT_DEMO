@@ -4,40 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PageDemo"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="300"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        >
     <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="5*"/>
+            <!-- <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>  -->
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged">
-            <ListBoxItem Name="LsteCheck">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE77F;" />
-                    <TextBlock Text="签到" FontSize="24" Margin="20,0,0,0" />
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="LsteOption">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE7B8;" />
-                    <TextBlock Text="选项" FontSize="24" Margin="20,0,0,0" />
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="LsteAdmin">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE912;" />
-                    <TextBlock Text="管理" FontSize="24" Margin="20,0,0,0" />
-                </StackPanel>
-            </ListBoxItem >
-            <ListBoxItem Name="LsteAbout">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE946;" />
-                    <TextBlock Text="关于" FontSize="24" Margin="20,0,0,0" />
-                </StackPanel>
-            </ListBoxItem >
-        </ListBox>
-        <Frame Name="FrameMain" Grid.Column="1">
+        <Viewbox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="Btn1" Grid.Column="0"  Height="Auto" Click="Btn1_Click">
+                    <materialDesign:PackIcon Kind="Settings"/>
+                </Button>
+                <Button Name="Btn2" Height="Auto" Width="Auto" Grid.Column="1" Click="Btn2_Click">
+                    <materialDesign:PackIcon Kind="InformationOutline"/>
+                </Button>
+                <Button Name="Btn3"  Height="Auto" Width="Auto" Grid.Column="2" Click="Btn3_Click">
+                    <materialDesign:PackIcon Kind="Check" />
+                </Button>
+            </Grid>
+        </Viewbox>
+        
+
+
+
+        <Frame Name="FrameMain" Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" >
 
         </Frame>
     </Grid>
