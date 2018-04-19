@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHDemo", "CHDemo\CHDemo.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageDemo", "PageDemo\PageDemo.csproj", "{D03F0D52-A331-4F41-8A0E-089EBD92C248}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ping", "Ping\Ping.csproj", "{189E3308-C894-4B82-BB5B-04C1922C4242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingDemo", "PingDemo\PingDemo.csproj", "{0AC87E5F-F4CB-48AE-9D14-5AC351833FBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{D03F0D52-A331-4F41-8A0E-089EBD92C248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D03F0D52-A331-4F41-8A0E-089EBD92C248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D03F0D52-A331-4F41-8A0E-089EBD92C248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{189E3308-C894-4B82-BB5B-04C1922C4242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{189E3308-C894-4B82-BB5B-04C1922C4242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{189E3308-C894-4B82-BB5B-04C1922C4242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{189E3308-C894-4B82-BB5B-04C1922C4242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AC87E5F-F4CB-48AE-9D14-5AC351833FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AC87E5F-F4CB-48AE-9D14-5AC351833FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AC87E5F-F4CB-48AE-9D14-5AC351833FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AC87E5F-F4CB-48AE-9D14-5AC351833FBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
