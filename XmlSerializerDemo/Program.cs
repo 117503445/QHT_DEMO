@@ -13,54 +13,34 @@ namespace XmlSerializerDemo
     {
         static void Main(string[] args)
         {
-            List<int> Var_list_int = new List<int> { 2, 3, 4, 5 };
-            //string xml = XmlSerializer(Var_list_int);
-            //Console.WriteLine(xml);
-
-            Dictionary<object, object> d = new Dictionary<object, object>
+            SerializableDictionary<object, object> d2 = new SerializableDictionary<object, object>
             {
                 { "key", "value" }
             };
+
+            SerializableDictionary<object, object> d = new SerializableDictionary<object, object>
+            {
+                { "key", "value" }
+            };
+            List<int> list = new List<int> { 2,3};
+           d2.Add("list",d);
+            //using (FileStream fs = new FileStream("1.xml", FileMode.Create, FileAccess.Write))
+            //using (FileStream fs = new FileStream("1.xml", FileMode.Create, FileAccess.Write))
+            //{
+            //    //在进行XML序列化的时候，在类中一定要有无参数的构造方法(要使用typeof获得对象类型)
+            //    XmlSerializer xml = new XmlSerializer(typeof(SerializableDictionary<object, object>));
+            //    xml.Serialize(fs, d);
+            //}
+            using (FileStream fs = new FileStream("2.xml", FileMode.Create, FileAccess.Write))
+            {
+                //在进行XML序列化的时候，在类中一定要有无参数的构造方法(要使用typeof获得对象类型)
+                XmlSerializer xml = new XmlSerializer(typeof(SerializableDictionary<object, object>));
+                xml.Serialize(fs, d2);
+            }
             //string xml = XmlSerializer(d);
             //Console.WriteLine(xml);
-            People people = new People();
-            GC.Collect();
             Console.Read();
         }
-        /// <summary>
-        ///序列化
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="serialObject"></param>
-        /// <returns></returns>
-        public static string XmlSerializer<T>(T serialObject) where T : class
-        {
-            var emptyNamepsaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
-            var serializer = new XmlSerializer(serialObject.GetType());
-            var settings = new XmlWriterSettings();
-            settings.OmitXmlDeclaration = true;
-            settings.Encoding = Encoding.UTF8;
-            using (var stream = new StringWriter())
-            using (var writer = XmlWriter.Create(stream, settings))
-            {
-                serializer.Serialize(writer, serialObject, emptyNamepsaces);
-                return stream.ToString();
-            }
-        }
-        /// <summary>
-        ///反序列化
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="xml"></param>
-        /// <returns></returns>
-        public static T DeserializeObject<T>(string xml) where T : class
-        {
-            using (var str = new StringReader(xml))
-            {
-                var xmlSerializer = new XmlSerializer(typeof(T));
-                var result = (T)xmlSerializer.Deserialize(str);
-                return result;
-            }
-        }
+
     }
 }
