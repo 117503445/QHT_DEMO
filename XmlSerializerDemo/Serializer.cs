@@ -156,41 +156,23 @@ namespace XmlSerializerDemo
         public SerializableDictionary() { }
         public void WriteXml(XmlWriter writer)       // Serializer
         {
-            Console.WriteLine("WriteXml");
             XmlSerializer KeySerializer = new XmlSerializer(typeof(TKey));
-            XmlSerializer ValueSerializer = new XmlSerializer(typeof(TValue));
 
             foreach (KeyValuePair<TKey, TValue> kv in this)
             {
-                Console.Write(0);
+
                 writer.WriteStartElement("SerializableDictionary");
-                Console.Write(1);
                 writer.WriteStartElement("key");
-                Console.Write(2);
                 KeySerializer.Serialize(writer, kv.Key);
-                Console.Write(3);
-
                 writer.WriteEndElement();
-                Console.Write(4);
                 writer.WriteStartElement("value");
-                Console.Write(5);
-                try
-                {
-                    Console.WriteLine(typeof(TValue));
-                    ValueSerializer.Serialize(writer, kv.Value);
-                }
-                catch (Exception ex)
-                {
-                    var i = (SerializableDictionary<object, object>)((object)kv.Value);
-                    XmlSerializer x = new XmlSerializer(i.GetType());
-                    x.Serialize(writer,kv.Value);
-                }
+                writer.WriteStartElement(kv.Value.GetType().ToString());
+                XmlSerializer x = new XmlSerializer(kv.Value.GetType());
+                x.Serialize(writer, kv.Value);
+                writer.WriteEndElement();
+                writer.WriteEndElement();
+                writer.WriteEndElement();
 
-                Console.Write(6);
-                writer.WriteEndElement();
-                Console.Write(7);
-                writer.WriteEndElement();
-                Console.Write(8);
             }
         }
         public void ReadXml(XmlReader reader)       // Deserializer
@@ -206,7 +188,18 @@ namespace XmlSerializerDemo
                 TKey tk = (TKey)KeySerializer.Deserialize(reader);
                 reader.ReadEndElement();
                 reader.ReadStartElement("value");
-                TValue vl = (TValue)ValueSerializer.Deserialize(reader);
+                reader.ReadStartElement();
+                TValue vl = (TValue)new object();
+                try
+                {
+                    vl = (TValue)ValueSerializer.Deserialize(reader);
+                }
+                catch (Exception)
+                {
+
+
+                }
+                reader.ReadEndElement();
                 reader.ReadEndElement();
                 reader.ReadEndElement();
                 Add(tk, vl);

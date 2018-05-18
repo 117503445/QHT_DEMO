@@ -15,15 +15,22 @@ namespace XmlSerializerDemo
         {
             SerializableDictionary<object, object> d2 = new SerializableDictionary<object, object>
             {
-                { "key", "value" }
+                { "var_str_hello", "hello" }
             };
 
-            SerializableDictionary<object, object> d = new SerializableDictionary<object, object>
-            {
-                { "key", "value" }
-            };
-            List<int> list = new List<int> { 2,3};
-           d2.Add("list",d);
+            //SerializableDictionary<object, object> d = new SerializableDictionary<object, object>
+            //{
+            //    { "key", "value" }
+            //};
+
+            List<int> list = new List<int> { 2, 3 ,4};
+
+            //d2.Add("DICT", d);
+            //d2.Add("TList", list);
+            d2.Add("int_123","123");
+            d2.Add("int_456", 456);
+            d2.Add("int_789", 789);
+
             //using (FileStream fs = new FileStream("1.xml", FileMode.Create, FileAccess.Write))
             //using (FileStream fs = new FileStream("1.xml", FileMode.Create, FileAccess.Write))
             //{
@@ -37,6 +44,18 @@ namespace XmlSerializerDemo
                 XmlSerializer xml = new XmlSerializer(typeof(SerializableDictionary<object, object>));
                 xml.Serialize(fs, d2);
             }
+            
+            SerializableDictionary<object, object> i;
+            using (FileStream fs = new FileStream("2.xml", FileMode.Open, FileAccess.Read))
+            {
+                XmlSerializer xml = new XmlSerializer(typeof(SerializableDictionary<object, object>));
+                i = (SerializableDictionary<object, object>)xml.Deserialize(fs);
+            }
+            foreach (var item in i)
+            {
+                Console.WriteLine(item.Key+" "+item.Value);
+            }
+
             //string xml = XmlSerializer(d);
             //Console.WriteLine(xml);
             Console.Read();
