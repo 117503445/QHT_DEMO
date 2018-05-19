@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingDemo", "PingDemo\PingDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlSerializerDemo", "XmlSerializerDemo\XmlSerializerDemo.csproj", "{0FC03A7F-5182-4027-BE34-06A93FA55D72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlSerializerDemo1", "XmlSerializerDemo1\XmlSerializerDemo1.csproj", "{CF43ED89-6C7C-4C4B-A0B9-A0EE23B2BA09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{0FC03A7F-5182-4027-BE34-06A93FA55D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FC03A7F-5182-4027-BE34-06A93FA55D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FC03A7F-5182-4027-BE34-06A93FA55D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF43ED89-6C7C-4C4B-A0B9-A0EE23B2BA09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF43ED89-6C7C-4C4B-A0B9-A0EE23B2BA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF43ED89-6C7C-4C4B-A0B9-A0EE23B2BA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF43ED89-6C7C-4C4B-A0B9-A0EE23B2BA09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

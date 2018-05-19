@@ -12,7 +12,8 @@ namespace XmlSerializerDemo
     class Program
     {
         static void Main(string[] args)
-        {
+
+       {
             SerializableDictionary<object, object> d2 = new SerializableDictionary<object, object>
             {
                 { "var_str_hello", "hello" }
