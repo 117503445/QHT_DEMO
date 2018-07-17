@@ -26,24 +26,16 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
+                <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Click="Button_Click"/>
 
-                <Button Name="Btn1" Grid.Column="0"  Height="Auto" Click="Btn1_Click">
-                    <materialDesign:PackIcon Kind="Settings"/>
-                </Button>
-                <Button Name="Btn2" Height="Auto" Width="Auto" Grid.Column="1" Click="Btn2_Click">
-                    <materialDesign:PackIcon Kind="InformationOutline"/>
-                </Button>
-                <Button Name="Btn3"  Height="Auto" Width="Auto" Grid.Column="2" Click="Btn3_Click">
-                    <materialDesign:PackIcon Kind="Check" />
-                </Button>
+
+
             </Grid>
         </Viewbox>
-        
+
+        <InkCanvas Name="I" Grid.Row="1" Grid.ColumnSpan="2"> </InkCanvas>
+       
 
 
-
-        <Frame Name="FrameMain" Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" >
-
-        </Frame>
     </Grid>
 </Window>

@@ -40,17 +40,22 @@ namespace PageDemo
 
         private void Btn1_Click(object sender, RoutedEventArgs e)
         {
-            FrameMain.Content = new Page1();
+            //FrameMain.Content = new Page1();
         }
 
         private void Btn2_Click(object sender, RoutedEventArgs e)
         {
-            FrameMain.Content = new Page2();
+            //FrameMain.Content = new Page2();
         }
 
         private void Btn3_Click(object sender, RoutedEventArgs e)
         {
-            FrameMain.Content = new Page3();
+            //FrameMain.Content = new Page3();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            I.Strokes.Clear();
         }
     }
 }
