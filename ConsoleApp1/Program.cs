@@ -10,13 +10,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            MyStruct s = new MyStruct();
-            s.num++;
-            Console.WriteLine(s.num);
+            Random random = new Random();
+            Console.WriteLine(random.Next());
+            Console.Read();
         }
     }
-    struct MyStruct
-    {
-        public double num;
-    }
+
 }
