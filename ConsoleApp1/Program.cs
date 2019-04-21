@@ -10,8 +10,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
-            Console.WriteLine(random.Next());
+            int n = 1;
+            double sum = 0;
+            while (n < 10000)
+            {
+                sum += Math.Sin(Math.Sqrt(n * n + 1) * Math.PI);
+                n++;
+            }
+            Console.WriteLine(n);
+            Console.WriteLine(sum);
             Console.Read();
         }
     }
