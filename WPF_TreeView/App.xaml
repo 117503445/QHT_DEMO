@@ -1,7 +1,7 @@
-﻿<Application x:Class="PingDemo.App"
+﻿<Application x:Class="WPF_TreeView.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PingDemo"
+             xmlns:local="clr-namespace:WPF_TreeView"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
