@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="BtnTest" Margin="0,0,630,367" Click="BtnTest_Click" HorizontalAlignment="Right" Width="170" Height="68" VerticalAlignment="Bottom">Test</Button>
+        <TreeView x:Name="Tv" Margin="377,238,0,0">
+            <TreeViewItem>
+                2
+            </TreeViewItem>
+            <TreeViewItem>
+                2
+            </TreeViewItem>
+            <TreeViewItem>
+                2
+            </TreeViewItem>
+            <TreeViewItem>
+                2
+            </TreeViewItem>
+            <TreeViewItem>
+                2
+            </TreeViewItem>
+            <TreeViewItem>
+                2
+            </TreeViewItem>
+        </TreeView>
+        <Button Content="Button" Margin="312,178,0,0"/>
+    </Grid>
+</Window>
